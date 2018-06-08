@@ -1,0 +1,26 @@
+ body {
+            background-color: black;
+            color: white;
+            font-family: 'Titillium Web', sans-serif;
+        }
+
+        .default-img {
+            width: 182px;
+            height: 272px;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .glyphicon {
+            top: 0;
+        }
+
+        .img-wrap {
+            padding: 20px 0;
+        }
+
+        .item-name {
+            font-size: 25px;
+        }
