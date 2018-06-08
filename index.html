@@ -70,7 +70,7 @@
         </div>
         <div class="row" infinite-scroll='loadMore()' infinite-scroll-distance='2'>
            <div class="col-sm-4" ng-repeat="item in dataList track by $index | filter: (!!search || undefined) &&  { name: search }"> 
-            <div class="col-sm-4 col-md-2" ng-repeat="item in dataList track by $index">
+            <!-- <div class="col-sm-4 col-md-2" ng-repeat="item in dataList track by $index"> -->
                 <div class="img-wrap">
                     <img ng-if="item['poster-image'] !=='posterthatismissing.jpg'" ng-src="./Slices/{{item['poster-image']}}" alt={{item.name}} class="img-responsive" />
                     <img class="default-img img-responsive" ng-if="item['poster-image'] ==='posterthatismissing.jpg'" ng-src="./Slices/placeholder_for_missing_posters.png"
