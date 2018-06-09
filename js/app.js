@@ -9,6 +9,7 @@ imageListApp.controller('ImageListController', function ($scope, dataService) {
   };
 
   $scope.loadMore = function () {
+    console.log('onload-----' + $scope.dataList.length);
     if ($scope.totalRecordCount === -1 || $scope.dataList.length < $scope.totalRecordCount) {
       dataService.getData()
         .success(function (response) {
