@@ -9,10 +9,8 @@ imageListApp.controller('ImageListController', function ($scope, dataService) {
   };
 
   $scope.loadMore = function () {
-    console.log(dataService.prevPage);
-     console.log(dataService.pageNumRequested);
-    if (dataService.prevPage !== dataService.pageNumRequested && 
-      ($scope.totalRecordCount === -1 || $scope.dataList.length < $scope.totalRecordCount)) {
+    if(dataService.prevPage === dataService.pageNumRequested) return;
+    if ($scope.totalRecordCount === -1 || $scope.dataList.length < $scope.totalRecordCount) {
       dataService.getData()
         .success(function (response) {
           $scope.pageTitle = response.page.title;
