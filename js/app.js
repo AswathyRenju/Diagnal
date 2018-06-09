@@ -22,6 +22,7 @@ imageListApp.controller('ImageListController', function ($scope, dataService) {
           else {
             $scope.dataList = data;
           }
+        console.log( $scope.dataList.length);
         })
         .error(function (error) {
           $scope.status = 'Unable to load image data: ' + error.message;
