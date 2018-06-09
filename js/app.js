@@ -9,14 +9,16 @@ imageListApp.controller('ImageListController', function ($scope, dataService) {
   };
 
   $scope.loadMore = function () {
-  console.log('current reg----' + dataService.pageNumRequested);
-    if ($scope.totalRecordCount === -1 || $scope.dataList.length < $scope.totalRecordCount) {
+    console.log(dataService.prevPage);
+     console.log(dataService.pageNumRequested);
+    if (dataService.prevPage !== dataService.pageNumRequested && 
+      ($scope.totalRecordCount === -1 || $scope.dataList.length < $scope.totalRecordCount)) {
       dataService.getData()
         .success(function (response) {
           $scope.pageTitle = response.page.title;
           $scope.totalRecordCount = parseInt(response.page['total-content-items'], 10);
-         dataService.pageNumRequested++;
-         console.log('next request ' + dataService.pageNumRequested);
+          dataService.prevPage=dataService.pageNumRequested;
+          dataService.pageNumRequested++;
           var data = response.page['content-items'].content;
           if ($scope.dataList.length) {
             $scope.dataList = $scope.dataList.concat(response.page["content-items"].content);
@@ -24,12 +26,10 @@ imageListApp.controller('ImageListController', function ($scope, dataService) {
           else {
             $scope.dataList = data;
           }
-       // console.log( $scope.dataList.length);
         })
         .error(function (error) {
           $scope.status = 'Unable to load image data: ' + error.message;
         });
     }
-   
   };
 });
