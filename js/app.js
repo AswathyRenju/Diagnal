@@ -29,5 +29,6 @@ imageListApp.controller('ImageListController', function ($scope, dataService) {
           $scope.status = 'Unable to load image data: ' + error.message;
         });
     }
+    console.log('endload-----' + $scope.dataList.length);
   };
 });
