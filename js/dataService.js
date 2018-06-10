@@ -4,5 +4,5 @@ imageListApp.service('dataService', function($http){
 
     this.getData = function () {
        return $http.get("./api/CONTENTLISTINGPAGE-PAGE" + this.pageNumRequested + ".json");   
-    }
+    };
 });
