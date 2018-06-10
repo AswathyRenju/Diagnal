@@ -15,7 +15,7 @@ imageListApp.controller('ImageListController', function ($scope, dataService) {
         .success(function (response) {
           $scope.pageTitle = response.page.title;
           $scope.totalRecordCount = parseInt(response.page['total-content-items'], 10);
-          dataService.prevPage=dataService.pageNumRequested;
+          dataService.prevPageNumRequested=dataService.pageNumRequested;
           dataService.pageNumRequested++;
           var data = response.page['content-items'].content;
           if ($scope.dataList.length) {
