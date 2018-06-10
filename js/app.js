@@ -9,7 +9,7 @@ imageListApp.controller('ImageListController', function ($scope, dataService) {
   };
 
   $scope.loadMore = function () {
-    if(dataService.prevPage === dataService.pageNumRequested) return;
+    if(dataService.prevPageNumRequested === dataService.pageNumRequested) return;
     if ($scope.totalRecordCount === -1 || $scope.dataList.length < $scope.totalRecordCount) {
       dataService.getData()
         .success(function (response) {
