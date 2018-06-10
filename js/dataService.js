@@ -3,9 +3,6 @@ imageListApp.service('dataService', function($http){
     this.prevPageNumRequested=1;
 
     this.getData = function () {
-      if(this.prevPageNumRequested  !== this.pageNumRequested){
-       return $http.get("./api/CONTENTLISTINGPAGE-PAGE" + this.pageNumRequested + ".json");
-      }
-   
+       return $http.get("./api/CONTENTLISTINGPAGE-PAGE" + this.pageNumRequested + ".json");   
     }
 });
