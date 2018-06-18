@@ -15,7 +15,7 @@
 
 <body ng-app='imageListApp' ng-controller='ImageListController'>
     <div class="container">
-        <h2 class="title">{{pageTitle}}</h2>
+        <h2 class="title" ng-cloak>{{pageTitle}}</h2>
         <div class="row">
             <div class="col-md-12">
                 <div class="input-group">
@@ -27,11 +27,11 @@
         <div class="row" infinite-scroll='loadMore()' infinite-scroll-distance='2'>
             <div class="col-xs-3 col-sm-4 col-md-4" ng-repeat="item in dataList | filter: (!!search || undefined) &&  { name: search } track by $index">
                 <div class="img-wrap">
-                    <img ng-if="item['poster-image'] !=='posterthatismissing.jpg'" ng-src="./Slices/{{item['poster-image']}}" alt={{item.name}}
+                    <img  ng-if="item['poster-image'] !=='posterthatismissing.jpg'" ng-src="./Slices/{{item['poster-image']}}" alt={{item.name}}
                         class="img-responsive" />
                     <img class="default-img img-responsive" ng-if="item['poster-image'] ==='posterthatismissing.jpg'" ng-src="./Slices/placeholder_for_missing_posters.png"
                         alt="Description" />
-                    <div class="item-name">{{item.name}}</div>
+                    <div ng-cloak class="item-name">{{item.name}}</div>
                 </div>
             </div>
         </div>
